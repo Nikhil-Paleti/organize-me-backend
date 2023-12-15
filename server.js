@@ -3,9 +3,16 @@ const cors = require("cors");
 
 const app = express();
 
-let corsOptions = {
-  origin: "http://localhost:8081"
-};
+var whitelist = ['http://localhost:8081', 'https://nikhil-paleti.github.io']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
 
 app.use(cors(corsOptions));
 
