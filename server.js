@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
-var whitelist = ['http://localhost:8081', 'https://nikhil-paleti.github.io']
+var whitelist = ['http://localhost:8081', 'https://nikhil-paleti.github.io', 'https://main--melodious-basbousa-5b3584.netlify.app']
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
